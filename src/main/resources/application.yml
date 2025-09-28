@@ -1,0 +1,9 @@
+#spring:
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/book_borrowing_system?createDatabaseIfNotExist = true
+#    username: root
+#    password: 1234
+
+
+server:
+  port: 8081
