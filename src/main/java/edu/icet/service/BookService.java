@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class BookService {
 
-//    @Autowired
-//    BookRepository bookRepository;
-//
-//    public void getAllDetails(){
-//
-//        bookRepository.findAll();
-//    }
+    @Autowired
+    BookRepository bookRepository;
+
+    public void getAllDetails(){
+
+        bookRepository.findAll();
+    }
 
     public void add(){
         Book book = new Book(
@@ -26,7 +26,7 @@ public class BookService {
                 "Sinhala Literature",
                 12
         );
-        //bookRepository.save(book);
+        bookRepository.save(book);
 
     }
 
