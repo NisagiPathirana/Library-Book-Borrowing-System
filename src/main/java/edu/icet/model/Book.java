@@ -1,5 +1,12 @@
 package edu.icet.model;
 
+import lombok.*;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 
 public class Book {
     private long Id;
