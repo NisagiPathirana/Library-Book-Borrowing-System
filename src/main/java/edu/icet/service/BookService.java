@@ -13,7 +13,7 @@ public class BookService {
 
     public void getAllDetails(){
 
-        bookRepository.findAll();
+      bookRepository.findAll();
     }
 
     public void add(){
