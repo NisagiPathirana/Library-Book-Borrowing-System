@@ -1,10 +1,12 @@
 package edu.icet.controller;
 
-import edu.icet.model.Book;
+import edu.icet.model.dto.Book;
+import edu.icet.model.entity.BookEntity;
 import edu.icet.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController     //@Controller @ResponseBody
 
@@ -25,5 +27,9 @@ public class BookController {
         return author;
     }
 
+    @GetMapping ("/all")
+    public void getAll() {
+        bookService.getAllDetails();
+    }
 
 }
