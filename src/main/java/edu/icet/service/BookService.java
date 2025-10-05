@@ -16,16 +16,9 @@ public class BookService {
       bookRepository.findAll();
     }
 
-    public void add(){
-        Book book = new Book(
-                3L,
-                "Ape Gama",
-                "Martin Wickramasinghe",
-                "Sarasavi",
-                "978-954-32-8575-4",
-                "Sinhala Literature",
-                12
-        );
+    public void add(Book book){
+
+        System.out.println(book);
         bookRepository.save(book);
 
     }
