@@ -1,4 +1,4 @@
-package edu.icet.model;
+package edu.icet.model.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -11,7 +11,7 @@ import lombok.*;
 @ToString
 
 @Entity
-public class Book {
+public class BookEntity {
     @Id
     private long Id;
     private String title;
