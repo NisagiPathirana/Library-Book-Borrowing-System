@@ -20,7 +20,10 @@ public class BookController {
         bookService.add(book);
     }
 
-
+    @GetMapping
+    public String getAuthor(){
+        return "hii";
+    }
 
 
 }
