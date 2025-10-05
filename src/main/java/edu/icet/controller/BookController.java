@@ -1,11 +1,12 @@
 package edu.icet.controller;
 
+import edu.icet.model.dto.Book;
+import edu.icet.model.entity.BookEntity;
 import edu.icet.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController     //@Controller @ResponseBody
 
@@ -14,10 +15,21 @@ public class BookController {
     @Autowired
     BookService bookService;
 
-    @GetMapping
-    public void getAPI(){
-        bookService.add();
+    @PostMapping
+    public void add(@RequestBody Book book) {
+        //System.out.println(book);
+
+        bookService.add(book);
     }
 
+    @GetMapping("{author}")
+    public String getAuthor(@PathVariable String author) {
+        return author;
+    }
+
+    @GetMapping ("/all")
+    public void getAll() {
+        bookService.getAllDetails();
+    }
 
 }
