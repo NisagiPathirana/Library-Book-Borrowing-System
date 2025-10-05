@@ -20,9 +20,9 @@ public class BookController {
         bookService.add(book);
     }
 
-    @GetMapping
-    public String getAuthor(){
-        return "hii";
+    @GetMapping("{author}")
+    public String getAuthor(@PathVariable String author) {
+        return author;
     }
 
 
