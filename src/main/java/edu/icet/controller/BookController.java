@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController     //@Controller @ResponseBody
+@RestController
+@RequestMapping("book")//@Controller @ResponseBody
 
 public class BookController {
 
@@ -30,6 +31,12 @@ public class BookController {
     @GetMapping ("/all")
     public void getAll() {
         bookService.getAllDetails();
+    }
+
+    @GetMapping ("/{id}")
+    public void searchById(@PathVariable String id){
+        bookService.searchById(Integer.parseInt(id));
+
     }
 
 }
