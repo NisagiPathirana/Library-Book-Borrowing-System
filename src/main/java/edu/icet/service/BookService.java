@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookService {
@@ -16,7 +17,6 @@ public class BookService {
     BookRepository bookRepository;
 
     public void getAllDetails(){
-
        List<BookEntity> bookEntityList = bookRepository.findAll();
 
        List<Book> bookList = new ArrayList<>();
@@ -29,10 +29,8 @@ public class BookService {
                     bookEntity.getIsbn(),
                     bookEntity.getCategory(),
                     bookEntity.getAvailableCopies()
-
             ));
         }
-
     }
 
     public void add(Book book){
@@ -48,7 +46,22 @@ public class BookService {
         );
 
         bookRepository.save(BookEntity);
+    }
 
+    public Book searchById(int id){
+        Optional<BookEntity> byId = bookRepository.findById(Long.valueOf(id));
+
+        BookEntity bookEntity = byId.orElseThrow();
+
+        return new Book(
+                bookEntity.getId(),
+                bookEntity.getTitle(),
+                bookEntity.getAuthor(),
+                bookEntity.getPublisher(),
+                bookEntity.getIsbn(),
+                bookEntity.getCategory(),
+                bookEntity.getAvailableCopies()
+        );
     }
 
 }
